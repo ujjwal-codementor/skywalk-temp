@@ -14,6 +14,14 @@ interface BookingsResponse {
   error?: string;
 }
 
+interface CalComBooking {
+  id: number;
+  startTime: string;
+  endTime: string;
+  attendees: Array<{ name?: string; email?: string }>;
+}
+
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<BookingsResponse>
@@ -49,7 +57,7 @@ export default async function handler(
 
 
     // Transform bookings to match expected format
-    const transformedBookings = allBookings.map(booking => ({
+    const transformedBookings = allBookings.map((booking: CalComBooking )=> ({
       id: booking.id,
       name: booking.attendees[0]?.name || 'Unknown',
       email: booking.attendees[0]?.email || 'No email',
