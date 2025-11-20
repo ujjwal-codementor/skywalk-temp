@@ -1,0 +1,17 @@
+# robots.txt for FurnishCare/Skywalk
+
+# Allow all crawlers to access public pages
+User-agent: *
+Allow: /
+
+# Disallow private/dynamic pages
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /user/
+Disallow: /sign-in/
+Disallow: /sign-up/
+
+# Sitemap location
+Sitemap: https://www.furnishcare.com/sitemap.xml
+
